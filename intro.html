@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AUCCA – Centro Ecopedagógico</title>
-  <meta name="description" content="AUCCA es un Centro Eco-Pedagógico en Talagante, Chile, dedicado a la agroecología, la educación ambiental y la cultura comunitaria.">
+  <title>AUCCA – Centro Eco-Pedagógico</title>
+  <meta name="description" content="Centro Eco-Pedagógico en Talagante dedicado a la agroecología, educación ambiental y regeneración comunitaria.">
   <link rel="icon" href="images/logo_aucca.png">
   <style>
     body {
@@ -31,6 +31,7 @@
       color: #1B5E20;
       font-size: 1.5rem;
       margin-top: 2rem;
+      text-align: center;
     }
     p {
       max-width: 800px;
@@ -52,6 +53,27 @@
       transition: background 0.2s;
     }
     .links a:hover { background: #388E3C; }
+
+    /* Accordion styles */
+    details {
+      background: #fff;
+      border-radius: 10px;
+      max-width: 800px;
+      margin: 1rem auto;
+      padding: 1rem;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+      transition: all 0.3s;
+    }
+    summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: #1B5E20;
+      outline: none;
+    }
+    details[open] {
+      background: #f2f8f3;
+    }
+
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -107,10 +129,10 @@
 
     <section id="areas">
       <h2>Áreas temáticas</h2>
-      <p>AUCCA trabaja en diversas áreas: <br>
-      🌱 <strong>Agroecología y Permacultura:</strong> Producción de semillas, hierbas medicinales y canastas familiares.<br>
-      🌎 <strong>Educación Ambiental:</strong> Talleres y proyectos con colegios y comunidades.<br>
-      🎨 <strong>Arte y Cultura:</strong> Encuentros, cestería, alfarería y danza como prácticas de autogestión.</p>
+      <p>AUCCA trabaja en tres pilares:</p>
+      <p>🌱 <strong>Agroecología y Permacultura:</strong> Producción de semillas, hierbas medicinales y hortalizas.<br>
+      🌎 <strong>Educación Ambiental:</strong> Talleres accesibles con colegios y comunidades.<br>
+      🎨 <strong>Arte y Cultura:</strong> Encuentros de cestería, alfarería y danza como herramientas de autogestión.</p>
     </section>
 
     <section id="proyectos">
@@ -119,12 +141,33 @@
       🥕 <strong>Sembremos Salud Comunitaria (2023):</strong> Alimentación sostenible y producción agroecológica.</p>
     </section>
 
-    <section id="contacto">
-      <h2>Contacto</h2>
-      <p>📧 <a href="mailto:aucca.contacto@gmail.com">aucca.contacto@gmail.com</a></p>
-      <p>📍 Talagante, Región Metropolitana, Chile</p>
+    <!-- Interactive sections -->
+    <section id="sistemas">
+      <h2>Prácticas y Sistemas</h2>
+
+      <details>
+        <summary>🚽 Baño seco ecológico</summary>
+        <p>El baño seco compostero procesa desechos sin usar agua. Usa aserrín o ceniza como cobertura para absorber humedad y evitar olores. Los residuos se transforman en compost en 6–12 meses, usado luego para mejorar suelos degradados.</p>
+      </details>
+
+      <details>
+        <summary>💧 Biofiltro de aguas grises</summary>
+        <p>El biofiltro trata naturalmente las aguas del lavado y la ducha mediante decantación, arena, grava y plantas acuáticas. El agua tratada se reutiliza para el riego, reduciendo el consumo de agua potable y educando en el manejo sostenible del recurso hídrico.</p>
+      </details>
+
+      <details>
+        <summary>🌿 Compostaje y lombricultura</summary>
+        <p>El compostaje transforma restos orgánicos en abono natural. AUCCA utiliza métodos aeróbicos y lombricultura, reduciendo residuos, fertilizando la huerta y cerrando el ciclo de nutrientes.</p>
+      </details>
+
+      <details>
+        <summary>🤝 Voluntariado</summary>
+        <p>El programa de voluntariado permite a personas de todas las edades colaborar en la huerta, la bioconstrucción y talleres educativos, fortaleciendo la comunidad a través del aprendizaje compartido.</p>
+      </details>
     </section>
 
+    <!-- Gallery -->
+    <h2>Galería</h2>
     <section class="gallery">
       <img src="images/arte_bioconstruccion.jpeg" alt="Arte y bioconstrucción">
       <img src="images/bano_seco.jpeg" alt="Baño seco ecológico">
