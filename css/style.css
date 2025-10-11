@@ -453,18 +453,326 @@ section, [id]{
   text-decoration: underline;
 }
 
-/* .btn.tiny {
-  background: var(--teal);
-  color: #fff;
-  padding: 0.3rem 0.7rem;
-  border-radius: 6px;
-  font-size: 0.8rem;
-  text-decoration: none;
-  transition: background 0.3s;
+
+/* =========================================================
+   Sección: Historia, Filosofía y Poema AUCCA (versión luminosa)
+   ========================================================= */
+#historia-filosofia {
+  margin: 3rem auto;
+  padding: 2.5rem 2rem;
+  max-width: 1000px;
+  width: 100%;
+
+  /* Fondo translúcido con resplandor */
+  background: radial-gradient(
+      circle at center,
+      rgba(255, 255, 255, 0.85) 0%,
+      rgba(255, 255, 255, 0.65) 60%,
+      rgba(255, 255, 255, 0.5) 100%
+  );
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(122, 218, 165, 0.35);
+  border-radius: 18px;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.12);
+
+  text-align: center;
+  color: var(--green-2);
+  line-height: 1.65;
+  font-weight: 400;
 }
 
-.credit {
-  color: var(--text);
+/* Titulares */
+#historia-filosofia h2 {
+  color: var(--green-1);
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+#historia-filosofia h3 {
+  color: var(--green-1);
+  margin-top: 2.2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  font-size: 1.2rem;
+  letter-spacing: 0.4px;
+}
+
+/* Párrafos */
+#historia-filosofia p {
+  margin-bottom: 1.1rem;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* Línea divisoria */
+#historia-filosofia .divider {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--mint), transparent);
+  margin: 2rem auto;
+  width: 60%;
+  opacity: 0.6;
+}
+
+/* Poema */
+#historia-filosofia .poem {
+  display: inline-block;
+  text-align: center;
+  margin: 1rem auto 0;
+  padding: 1.5rem 1.2rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.45);
+  box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.08);
+  font-size: 0.97rem;
+  line-height: 1.65;
+  font-style: italic;
+  color: #2e3b2f;
+  max-width: 700px;
+}
+
+#historia-filosofia .poem p {
+  margin-bottom: 0.8rem;
+}
+
+/* Botón escuchar */
+#historia-filosofia .poem-cta {
+  text-align: center;
+  margin-top: 1.3rem;
+}
+
+#historia-filosofia .btn.listen {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--green-1), var(--mint));
+  color: #fff;
   font-size: 0.9rem;
-  opacity: 0.9;
-} */
+  padding: 0.6rem 1.3rem;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+#historia-filosofia .btn.listen:hover {
+  filter: brightness(1.08);
+  transform: scale(1.05);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  #historia-filosofia {
+    padding: 1.5rem;
+    font-size: 0.93rem;
+    background: radial-gradient(
+      circle at center,
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(255, 255, 255, 0.6) 100%
+    );
+  }
+  #historia-filosofia .poem {
+    font-size: 0.9rem;
+    padding: 1rem;
+  }
+}
+
+
+/* ======================================================
+   Sección: Sala de Talleres AUCCA
+   ====================================================== */
+#sala-talleres {
+  margin: 3rem auto;
+  padding: 2rem 2rem 2.5rem;
+  max-width: 1000px;
+  text-align: left;
+  line-height: 1.65;
+  color: var(--green-2);
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(8px);
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+#sala-talleres h2 {
+  text-align: center;
+  color: var(--green-1);
+  margin-bottom: 1.2rem;
+  font-size: 1.6rem;
+}
+
+#sala-talleres p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+#sala-talleres ul.sala-condiciones {
+  margin: 1.5rem auto;
+  padding-left: 1.2rem;
+  list-style-type: "🌿 ";
+  font-size: 0.98rem;
+}
+
+#sala-talleres ul.sala-condiciones li {
+  margin-bottom: 0.4rem;
+  line-height: 1.5;
+}
+
+#sala-talleres .btn {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--green-1), var(--mint));
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+#sala-talleres .btn:hover {
+  filter: brightness(1.08);
+  transform: scale(1.05);
+}
+
+#sala-talleres .center {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  #sala-talleres {
+    padding: 1.5rem;
+    font-size: 0.95rem;
+  }
+}
+
+
+/* ======================================================
+   Sección: Visitas Pedagógicas AUCCA
+   ====================================================== */
+#visitas-pedagogicas {
+  margin: 3rem auto;
+  padding: 2rem;
+  max-width: 1000px;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(8px);
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  color: var(--green-2);
+  line-height: 1.65;
+}
+
+#visitas-pedagogicas h2 {
+  text-align: center;
+  color: var(--green-1);
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+}
+
+#visitas-pedagogicas p {
+  margin-bottom: 1rem;
+  text-align: left;
+  font-size: 1rem;
+}
+
+#visitas-pedagogicas ul.visitas-detalle {
+  margin: 1.5rem auto;
+  padding-left: 1.2rem;
+  list-style-type: "🍃 ";
+  font-size: 0.98rem;
+}
+
+#visitas-pedagogicas ul.visitas-detalle li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+#visitas-pedagogicas small {
+  color: #5a7a6a;
+  font-style: italic;
+}
+
+#visitas-pedagogicas .btn {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--green-1), var(--mint));
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+#visitas-pedagogicas .btn:hover {
+  filter: brightness(1.08);
+  transform: scale(1.05);
+}
+
+#visitas-pedagogicas .center {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  #visitas-pedagogicas {
+    padding: 1.5rem;
+    font-size: 0.95rem;
+  }
+}
+
+
+/* ======================================================
+   Sección: Voluntariado AUCCA
+   ====================================================== */
+#voluntariado {
+  margin: 3rem auto;
+  padding: 2rem 2rem 2.5rem;
+  max-width: 1000px;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(8px);
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  color: var(--green-2);
+  line-height: 1.65;
+}
+
+#voluntariado h2 {
+  text-align: center;
+  color: var(--green-1);
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+}
+
+#voluntariado p {
+  margin-bottom: 1rem;
+  text-align: left;
+  font-size: 1rem;
+}
+
+#voluntariado .btn {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--green-1), var(--mint));
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+#voluntariado .btn:hover {
+  filter: brightness(1.08);
+  transform: scale(1.05);
+}
+
+#voluntariado .center {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  #voluntariado {
+    padding: 1.5rem;
+    font-size: 0.95rem;
+  }
+}
