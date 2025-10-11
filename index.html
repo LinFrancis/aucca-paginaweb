@@ -4,187 +4,396 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AUCCA – Centro Eco-Pedagógico</title>
-  <meta name="description" content="Centro Eco-Pedagógico en Talagante dedicado a la agroecología, educación ambiental y regeneración comunitaria.">
+  <meta name="description" content="AUCCA: Centro Eco-Pedagógico en Talagante, Chile. Agroecología, educación ambiental y cultura comunitaria desde 2013.">
   <link rel="icon" href="images/logo_aucca.png">
-  <style>
-    body {
-      margin: 0;
-      font-family: system-ui, sans-serif;
-      background: #FAFAF5;
-      color: #112E4D;
-      line-height: 1.6;
-    }
-    header {
-      text-align: center;
-      padding: 2rem 1rem 1rem;
-    }
-    header img {
-      width: 120px;
-      height: auto;
-    }
-    h1 {
-      color: #1B5E20;
-      font-size: 2.2rem;
-      margin-bottom: 0.3em;
-    }
-    h2 {
-      color: #1B5E20;
-      font-size: 1.5rem;
-      margin-top: 2rem;
-      text-align: center;
-    }
-    p {
-      max-width: 800px;
-      margin: 0.5em auto;
-      padding: 0 1rem;
-    }
-    .links {
-      margin-top: 1rem;
-    }
-    .links a {
-      display: inline-block;
-      margin: 0.4em;
-      padding: 0.6em 1.2em;
-      background: #1B5E20;
-      color: white;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: background 0.2s;
-    }
-    .links a:hover { background: #388E3C; }
-
-    /* Accordion styles */
-    details {
-      background: #fff;
-      border-radius: 10px;
-      max-width: 800px;
-      margin: 1rem auto;
-      padding: 1rem;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.06);
-      transition: all 0.3s;
-    }
-    summary {
-      cursor: pointer;
-      font-weight: 600;
-      color: #1B5E20;
-      outline: none;
-    }
-    details[open] {
-      background: #f2f8f3;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 8px;
-      padding: 2rem 1rem;
-      max-width: 1100px;
-      margin: auto;
-    }
-    .gallery img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 10px;
-    }
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      padding: 2rem 1rem;
-      color: #6b7480;
-      background: #F0F0EB;
-    }
-    @media (max-width: 600px) {
-      h1 { font-size: 1.8rem; }
-      h2 { font-size: 1.3rem; }
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css">
 </head>
+<body id="top" class="has-random-bg">
+  <!-- Fondo dinámico compartido con el asistente -->
+  <div class="bg-overlay"></div>
 
-<body>
-  <header>
-    <img src="images/logo_aucca.png" alt="Logo AUCCA">
-    <h1>AUCCA 🌿</h1>
-    <p>Centro Eco-Pedagógico en Talagante, Chile</p>
-
-    <div class="links">
-      <a href="https://www.instagram.com/aucca.ecopedagogico/" target="_blank">Instagram</a>
-      <a href="https://www.facebook.com/centro.ecopedagogico" target="_blank">Facebook</a>
-      <a href="https://www.youtube.com/watch?v=ROlro8VDgII&t=3s" target="_blank">Video</a>
-      <a href="https://goo.gl/maps/b9od7Yo7UaE2" target="_blank">Mapa</a>
+  <!-- Header fijo, compacto y coherente -->
+  <header class="site-header compact glassy">
+    <div class="brand">
+      <a href="#top">
+        <img src="images/logo_aucca_green.png" alt="AUCCA" class="logo">
+      </a>
+      <span class="subtitle">Centro Eco-Pedagógico</span>
     </div>
+
+    <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+
+    <nav class="top-nav hidden" id="nav-menu" aria-hidden="true">
+      <a href="#top" class="btn small subtle">Inicio</a>
+      <a href="#que-es">AUCCA</a>
+      <a href="#historia-filosofia">Historia</a>
+      <a href="#mision-objetivos">Misión</a>
+      <a href="#areas">Áreas</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#alianzas">Alianzas</a>
+      <a href="#escuela-regenerativa">Escuela</a>
+      <a href="#sala-talleres">Talleres</a>
+      <a href="#visitas-pedagogicas">Visitas</a>
+      <a href="#voluntariado">Voluntariado</a>
+      <a href="#contacto">Contacto</a>
+      <a href="asistente.html" class="btn small">Asistente 🌿</a>
+    </nav>
   </header>
 
-  <main>
-    <section id="quienes">
+  <main class="page-main">
+    <!-- Portada (hero) con el mismo fondo dinámico del asistente -->
+    <section id="hero" class="card glassy">
+      <h2 style="margin-bottom:.5rem;">AUCCA – Talagante, Chile</h2>
+      <p style="margin:0;">Cuidamos la Tierra, cultivamos comunidad y compartimos los frutos.</p>
+    </section>
+
+    <!-- Qué es AUCCA -->
+    <section id="que-es" class="card glassy">
       <h2>¿Qué es AUCCA?</h2>
-      <p>AUCCA es un <strong>Centro Eco-Pedagógico</strong> fundado en <strong>2013</strong> en Talagante, Chile. Su misión es <strong>difundir prácticas medioambientales regenerativas</strong> y fomentar el intercambio de saberes basados en los principios del <strong>Buen Vivir</strong>. Es una organización sin fines de lucro enfocada en la <strong>agroecología, la educación ambiental y la cultura comunitaria</strong>.</p>
+      <p>Somos un <strong>Centro Eco-Pedagógico</strong> ubicado en Talagante, Chile. Desde 2013, impulsamos prácticas medioambientales regenerativas y el intercambio de saberes inspirados en el <strong>Buen Vivir</strong>. Somos una organización sin fines de lucro enfocada en <strong>agroecología, educación ambiental y cultura</strong>, promoviendo el desarrollo sostenible y la participación comunitaria.</p>
+      <p><strong>Ubicación:</strong> Talagante, a 40 km de Santiago y a 1,6 km del río Mapocho. Colindamos con cuatro poblaciones de alta vulnerabilidad, incluyendo la villa de viviendas sociales “Los Presidentes”, lo que nos permite un impacto directo en las comunidades vecinas.</p>
     </section>
 
-    <section id="mision">
-      <h2>Misión</h2>
-      <p>Promover la educación ambiental, la soberanía alimentaria y el fortalecimiento de comunidades a través de prácticas regenerativas y experiencias eco-pedagógicas.</p>
+    <!-- Historia y Filosofía -->
+    <section id="historia-filosofia" class="card glassy">
+      <h2>Nuestra historia y filosofía</h2>
+      <p>AUCCA nace en <strong>2013</strong> como un espacio comunitario de aprendizaje y cuidado de la Tierra. En una zona demostrativa de <strong>1500 m²</strong> crecen más de <strong>174 especies</strong> de árboles y plantas. Abrazamos la práctica de la <strong>minga</strong>, donde construir el espacio y aprender se hace <strong>juntas y juntos</strong>, sumando manos y corazones.</p>
+      <p>Nuestra filosofía se nutre de la <strong>permacultura</strong>, la <strong>agroecología</strong> y los principios del <strong>Buen Vivir</strong>: sostenibilidad, educación comunitaria, justicia social y respeto por los ciclos de la naturaleza.</p>
     </section>
 
-    <section id="areas">
-      <h2>Áreas temáticas</h2>
-      <p>AUCCA trabaja en tres pilares:</p>
-      <p>🌱 <strong>Agroecología y Permacultura:</strong> Producción de semillas, hierbas medicinales y hortalizas.<br>
-      🌎 <strong>Educación Ambiental:</strong> Talleres accesibles con colegios y comunidades.<br>
-      🎨 <strong>Arte y Cultura:</strong> Encuentros de cestería, alfarería y danza como herramientas de autogestión.</p>
+    <!-- Misión y Objetivos -->
+    <section id="mision-objetivos" class="card glassy">
+      <h2>Misión y objetivos</h2>
+      <p><strong>Misión:</strong> Difundir prácticas medioambientales regenerativas en Talagante, promoviendo el intercambio de saberes y la <strong>soberanía alimentaria</strong> a través de la participación comunitaria.</p>
+      <ul>
+        <li><strong>Construir</strong> un centro demostrativo de prácticas sustentables.</li>
+        <li><strong>Facilitar</strong> el acceso a la educación ambiental con talleres accesibles.</li>
+        <li><strong>Fomentar</strong> la economía local mediante ferias ecológicas y comercio justo.</li>
+        <li><strong>Vincular</strong> redes culturales y medioambientales a nivel local, nacional y latinoamericano.</li>
+      </ul>
     </section>
 
-    <section id="proyectos">
+    <!-- Áreas de acción -->
+    <section id="areas" class="card glassy">
+      <h2>Áreas de acción</h2>
+      <ul>
+        <li><strong>Agroecología y Permacultura:</strong> Conservación de semillas, producción agroecológica y cosechas compartidas. Comercializamos <strong>45 especies</strong> de hierbas medicinales y canastas con <strong>13 variedades</strong> de hortalizas.</li>
+        <li><strong>Educación Ambiental:</strong> Talleres de sustentabilidad a bajo costo con colegios y centros comunitarios.</li>
+        <li><strong>Arte y Cultura:</strong> El <strong>20%</strong> de las actividades son oficios y prácticas ancestrales como cestería, alfarería y danza; los encuentros culturales son herramientas de autogestión.</li>
+      </ul>
+    </section>
+
+    <!-- Proyectos destacados -->
+    <section id="proyectos" class="card glassy">
       <h2>Proyectos destacados</h2>
-      <p>🌳 <strong>Escuela Regenerativa Ambiental (Oct - Nov 2025):</strong>6 talleres para regenerar<br>
-      <p>🌳 <strong>Bosque Comestible (2024):</strong> Creación de un ecosistema agroforestal sustentable.<br>
-      🥕 <strong>Sembremos Salud Comunitaria (2023):</strong> Alimentación sostenible y producción agroecológica.</p>
+      <ul>
+        <li><strong>Bosque Comestible:</strong> Ecosistema agroforestal que impulsa soberanía alimentaria y biodiversidad (implementación planificada desde 2024).</li>
+        <li><strong>Sembremos Salud Comunitaria (2023):</strong> Salud y alimentación sostenible a partir de la producción agroecológica.</li>
+      </ul>
     </section>
 
-    <!-- Interactive sections -->
-    <section id="sistemas">
-      <h2>Prácticas y Sistemas</h2>
-
-      <details>
-        <summary>🚽 Baño seco ecológico</summary>
-        <p>El baño seco compostero procesa desechos sin usar agua. Usa aserrín o ceniza como cobertura para absorber humedad y evitar olores. Los residuos se transforman en compost en 6–12 meses, usado luego para mejorar suelos degradados.</p>
-      </details>
-
-      <details>
-        <summary>💧 Biofiltro de aguas grises</summary>
-        <p>El biofiltro trata naturalmente las aguas del lavado y la ducha mediante decantación, arena, grava y plantas acuáticas. El agua tratada se reutiliza para el riego, reduciendo el consumo de agua potable y educando en el manejo sostenible del recurso hídrico.</p>
-      </details>
-
-      <details>
-        <summary>🌿 Compostaje y lombricultura</summary>
-        <p>El compostaje transforma restos orgánicos en abono natural. AUCCA utiliza métodos aeróbicos y lombricultura, reduciendo residuos, fertilizando la huerta y cerrando el ciclo de nutrientes.</p>
-      </details>
-
-      <details>
-        <summary>🤝 Voluntariado</summary>
-        <p>El programa de voluntariado permite a personas de todas las edades colaborar en la huerta, la bioconstrucción y talleres educativos, fortaleciendo la comunidad a través del aprendizaje compartido.</p>
-      </details>
+    <!-- Alianzas y comunidad -->
+    <section id="alianzas" class="card glassy">
+      <h2>Alianzas y comunidad</h2>
+      <ul>
+        <li><strong>Salud:</strong> CECOF Eduardo Frei.</li>
+        <li><strong>Escuelas:</strong> Santa María, Tegualda, Montessori.</li>
+        <li><strong>Redes:</strong> Movimiento de Agricultura Urbana Chile (MAU), Movimiento por el Agua y los Territorios (MAT), Red de Agroecología de Talagante.</li>
+      </ul>
+      <p>AUCCA es un espacio abierto. Aprendemos en comunidad, sumando voluntades y construyendo con sentido.</p>
     </section>
 
-    <!-- Gallery -->
-    <h2>Galería</h2>
-    <section class="gallery">
-      <img src="images/arte_bioconstruccion.jpeg" alt="Arte y bioconstrucción">
-      <img src="images/bano_seco.jpeg" alt="Baño seco ecológico">
-      <img src="images/biofiltro.jpeg" alt="Biofiltro de aguas grises">
-      <img src="images/cultivo_alcachofa.jpeg" alt="Cultivo agroecológico">
-      <img src="images/abejas.jpeg" alt="Abejas en AUCCA">
-      <img src="images/tomates.jpeg" alt="Tomates agroecológicos">
-      <img src="images/vista_desde_espino.jpeg" alt="Vista desde el espino">
-      <img src="images/queltehue.png" alt="Queltehue, ave de AUCCA">
-      <img src="images/zonificacion.png" alt="Zonificación del terreno">
+    <!-- Escuela Regenerativa -->
+    <section id="escuela-regenerativa" class="card glassy">
+      <h2>Escuela Regenerativa Ambiental de Talagante</h2>
+      <p>Una propuesta viva para aprender haciendo: agroecología, permacultura, manejo de agua, compostaje, bioconstrucción y más.</p>
+      <p>
+        <a class="btn" href="https://forms.gle/J2gj42stPK1m1xHa9" target="_blank" rel="noopener">Inscríbete aquí</a>
+        &nbsp;·&nbsp;
+        Más info en Instagram:
+        <a href="https://www.instagram.com/p/DPeO-WOjijd/?img_index=1" target="_blank" rel="noopener">@aucca.ecopedagogico</a>
+      </p>
     </section>
+
+    <!-- Sala de talleres -->
+    <section id="sala-talleres" class="card glassy">
+      <h2>Sala de Talleres</h2>
+      <p>Si facilitas talleres, este espacio es para ti. Queremos compartir conocimientos con amor y respeto por la Tierra.</p>
+      <p><a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSef7nL084QctyTWLHCdfGp2NLUMdTBaVYglUx17FTnBKS_pAg/viewform" target="_blank" rel="noopener">Inscribir taller</a></p>
+      <ul>
+        <li><strong>Uso de sala para terceros.</strong></li>
+        <li><strong>Pago:</strong> 30% del valor + 1 cupo AUCCA (mínimo $5.000).</li>
+        <li><strong>Duración:</strong> 2 horas por taller (extensión a convenir).</li>
+        <li><strong>Puntualidad:</strong> máximo 30 minutos de margen.</li>
+        <li><strong>Compromiso:</strong> “Dejar el lugar mejor que como lo encontramos”.</li>
+      </ul>
+    </section>
+
+    <!-- Visitas pedagógicas -->
+    <section id="visitas-pedagogicas" class="card glassy">
+      <h2>Visitas pedagógicas</h2>
+      <ul>
+        <li><strong>Contenido:</strong> recorrido y actividades con guías, siguiendo propuesta escrita.</li>
+        <li><strong>Duración:</strong> entre 1 y 2 horas.</li>
+        <li><strong>Monitores:</strong> según número de visitantes.</li>
+        <li><strong>Valor por persona:</strong> $2.500 (500 para AUCCA, 2.000 para monitorxs).</li>
+        <li><strong>Accesibilidad:</strong> no apto para personas con movilidad reducida.</li>
+        <li><strong>Preparación:</strong> zonificar y coordinar con anticipación.</li>
+      </ul>
+    </section>
+
+    <!-- Voluntariado -->
+    <section id="voluntariado" class="card glassy">
+      <h2>Voluntariado</h2>
+      <p>Si te mueve la agroecología y quieres aprender haciendo, vente a la minga. En AUCCA colaboras en la huerta, la bioconstrucción y los talleres. <strong>Participar es sembrar comunidad.</strong></p>
+    </section>
+
+    <!-- Galería -->
+    <section id="galeria" class="card glassy">
+      <h2>Galería</h2>
+      <div class="gallery">
+        <figure>
+          <img src="images/arte_bioconstruccion.jpeg" alt="Arte y bioconstrucción">
+          <figcaption>Arte y bioconstrucción</figcaption>
+        </figure>
+        <figure>
+          <img src="images/bano_seco.jpeg" alt="Baño seco ecológico">
+          <figcaption>Baño seco ecológico</figcaption>
+        </figure>
+        <figure>
+          <img src="images/biofiltro.jpeg" alt="Biofiltro de aguas grises">
+          <figcaption>Biofiltro de aguas grises</figcaption>
+        </figure>
+        <figure>
+          <img src="images/cultivo_alcachofa.jpeg" alt="Cultivo agroecológico">
+          <figcaption>Cultivo agroecológico</figcaption>
+        </figure>
+        <figure>
+          <img src="images/abejas.jpeg" alt="Abejas en AUCCA">
+          <figcaption>Abejas en AUCCA</figcaption>
+        </figure>
+        <figure>
+          <img src="images/tomates.jpeg" alt="Tomates agroecológicos">
+          <figcaption>Tomates agroecológicos</figcaption>
+        </figure>
+        <figure>
+          <img src="images/vista_desde_espino.jpeg" alt="Vista desde el espino">
+          <figcaption>Vista desde el espino</figcaption>
+        </figure>
+        <figure>
+          <img src="images/queltehue.png" alt="Queltehue, ave de AUCCA">
+          <figcaption>Queltehue</figcaption>
+        </figure>
+        <figure>
+          <img src="images/zonificacion.png" alt="Zonificación del terreno">
+          <figcaption>Zonificación del terreno</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Contacto y redes -->
+    <section id="contacto" class="card glassy">
+      <h2>Contacto</h2>
+      <!-- Redes sociales -->
+    <ul class="media-list">
+      <li><strong>EMAIL</strong> — <a href="mailto:aucca.contacto@gmail.com" target="_blank">aucca.contacto@gmail.com</a></li>
+      <li><strong>Facebook AUCCA</strong> — <a href="https://www.facebook.com/centroecopedagogico/info/?tab=overview" target="_blank">facebook.com/centroecopedagogico</a></li>
+      <li><strong>Youtube AUCCA</strong> — <a href="https://www.youtube.com/@aucca.ecopedagogico" target="_blank">youtube.com/@aucca.ecopedagogico</a></li>
+      <li><strong>Instagram AUCCA</strong> — <a href="https://www.instagram.com/aucca.ecopedagogico/" target="_blank">@aucca.ecopedagogico</a></li>
+    </ul>
+
+    </section>
+
+    <!-- Ubicación -->
+    <section id="ubicación" class="card glassy">
+      <h2>Ubicación</h2>
+
+      <!-- Mapa embebido con dirección exacta de AUCCA -->
+    <div style="border-radius:12px; overflow:hidden; box-shadow:0 6px 20px rgba(0,0,0,.18);">
+      <iframe
+        title="Mapa AUCCA – 1 Poniente 1216, Talagante"
+        src="https://www.google.com/maps?q=1+Poniente+1216,+Talagante,+Región+Metropolitana,+Chile&z=17&output=embed"
+        width="100%"
+        height="360"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+
+    </section>
+
+
+
+
+    
+    <!-- ======================================= -->
+<!-- VIDEOS Y MATERIALES DE AUCCA -->
+<!-- ======================================= -->
+<section id="videos" class="card glassy">
+  <h2>🎥 Videos y materiales de AUCCA</h2>
+  <p class="center">Una selección de registros, recorridos y materiales pedagógicos compartidos desde nuestra historia.</p>
+
+  
+  <!-- Huerta -->
+  <h3>🍅 Huerta y recorridos</h3>
+  <ul class="media-list">
+    <li><strong>Huerta ecológica AUCCA (2020)</strong> — Recorrido visual por la huerta agroecológica en otoño.  
+      <a href="https://www.youtube.com/watch?v=mRgaTnQTqZk" target="_blank">Ver video</a>
+    </li>
+    <li><strong>Serie “AUCCA I - V” (2023)</strong> — Recorridos y camas de cultivo en la huerta (por Chalo).  
+      <a href="https://www.youtube.com/watch?v=xV7rLfZ1SZk" target="_blank">I</a> •
+      <a href="https://www.youtube.com/watch?v=auqWIWmLAks" target="_blank">II</a> •
+      <a href="https://www.youtube.com/watch?v=yJGS_PuWqfg" target="_blank">III</a> •
+      <a href="https://www.youtube.com/watch?v=UqgC6vCAABc" target="_blank">IV</a> •
+      <a href="https://www.youtube.com/watch?v=M6J_8Os-g_I" target="_blank">V</a>
+    </li>
+  </ul>
+
+  <!-- Educación -->
+  <h3>🎓 Educación y Escuela Regenerativa</h3>
+  <ul class="media-list">
+    <li><strong>Presentación Escuela Regenerativa Ambiental Talagante (2025)</strong> — Entrevista a Francis en Radio Semilla.  
+      <a href="https://www.youtube.com/live/a5lxQYUlAlA?si=aVFk8Rk6VWGTncVK" target="_blank">Ver video</a>
+    </li>
+  </ul>
+
+  <!-- Material pedagógico -->
+  <h3>🌼 Material pedagógico</h3>
+  <ul class="media-list">
+    <li><strong>Reconocimiento de hierbas medicinales (2020)</strong> — Taller de uso de hierbas en San Pedro.  
+      <a href="https://www.youtube.com/watch?v=U9yBLrxpFvg" target="_blank">Ver video</a>
+    </li>
+  </ul>
+
+  <!-- General -->
+  <h3>🌳 General</h3>
+  <ul class="media-list">
+    <li><strong>AUCCA en Invierno (2025)</strong> — Ciclo invernal en la huerta.  
+      <a href="https://www.instagram.com/p/DMEGmYqxcv6/" target="_blank">Ver reel</a>
+    </li>
+    <li><strong>Video Promocional AUCCA (2016)</strong> — Difusión de prácticas eco-pedagógicas en Talagante.  
+      <a href="https://www.youtube.com/watch?v=ROlro8VDgII" target="_blank">Ver video</a>
+    </li>
+  </ul>
+
+  <!-- Comunidad -->
+  <h3>📻 Comunidad y medios</h3>
+  <ul class="media-list">
+    <li><strong>Permacultura Podcast (2023)</strong> — Conversación con Diego y Chalo sobre AUCCA.  
+      <a href="https://www.youtube.com/watch?v=8VhDKtwA8NE" target="_blank">Escuchar</a>
+    </li>
+    <li><strong>Carnaval de Primavera (2015)</strong> — Celebración comunitaria en Talagante.  
+      <a href="https://www.youtube.com/watch?v=gprnw-BQT-Q&t=73s" target="_blank">Ver video</a>
+    </li>
+    <li><strong>Newen Mapu – Intercambio de Semillas (2020)</strong> — Encuentro de semillas y saberes.  
+      <a href="https://www.youtube.com/watch?v=z5b0MhDqj_w" target="_blank">Ver video</a>
+    </li>
+  </ul>
+
+  <!-- Tecnología -->
+  <h3>⚡ Energía y tecnología apropiada</h3>
+  <ul class="media-list">
+    <li><strong>Guía uso sistema de paneles solares (2025)</strong> — Explicación audiovisual.  
+      <a href="https://www.youtube.com/shorts/MQLhdBCumhs" target="_blank">Ver video</a>
+    </li>
+  </ul>
+
+  <!-- Documentos -->
+  <h3>📄 Documentos y presentaciones</h3>
+  <ul class="media-list">
+    <li><strong>Presentación AUCCA 2024</strong> — Congreso SOCLA Paraguay.  
+      <a href="https://drive.google.com/file/d/1-ugsLMXn8MmIcnqk198zqycXojl6V-9I/view?usp=drive_link" target="_blank">Ver PDF</a>
+    </li>
+  </ul>
+
+  <!-- Sonidos -->
+  <h3>🎧 Sonidos de la huerta</h3>
+  <ul class="media-list">
+    <li><strong>Sonidos de la Huerta al Mediodía (2024)</strong> — 20 minutos de naturaleza para meditar.  
+      <a href="https://www.youtube.com/watch?v=RWwvnFI7mc4" target="_blank">Escuchar</a>
+    </li>
+  </ul>
+</section>
+
+
+ 
+
+
   </main>
 
-  <footer>
-    © 2025 AUCCA – Centro Eco-Pedagógico · Talagante, Chile
+
+
+
+  <footer class="site-footer glassy">
+    <div class="footer-row">
+      <span>© 2025 AUCCA – Centro Eco-Pedagógico · Hecho con 🌿 desde AUCCA, Talagante – Chile</span>
+      <a class="btn tiny" href="#top">Subir ⤴</a>
+    </div>
   </footer>
+
+  <script src="js/background.js"></script>
+
+  <!-- Menú hamburguesa + cierre auto + resaltado de sección activa -->
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const menu = document.getElementById("nav-menu");
+    const toggle = document.querySelector(".menu-toggle");
+    const links = document.querySelectorAll(".top-nav a");
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll(".top-nav a[href^='#']");
+    const homeLink = document.querySelector('.top-nav a[href="#top"], .top-nav a[href$="#top"]');
+
+    // Toggle menú hamburguesa (con ARIA)
+    if (toggle) {
+      toggle.addEventListener("click", () => {
+        const willOpen = menu.classList.contains("hidden");
+        menu.classList.toggle("hidden");
+        toggle.setAttribute("aria-expanded", willOpen ? "true" : "false");
+        menu.setAttribute("aria-hidden", willOpen ? "false" : "true");
+      });
+    }
+
+    // Cerrar menú al hacer clic en cualquier link
+    links.forEach(link => {
+      link.addEventListener("click", () => {
+        menu.classList.add("hidden");
+        toggle.setAttribute("aria-expanded", "false");
+        menu.setAttribute("aria-hidden", "true");
+      });
+    });
+
+    // Resaltar el link activo según scroll
+    function highlightActiveLink() {
+      const scrollY = window.scrollY + 120;
+
+      // Caso especial: arriba de todo → Inicio activo
+      if (window.scrollY < 20 && homeLink) {
+        document.querySelectorAll('.top-nav a').forEach(l => l.classList.remove('active'));
+        homeLink.classList.add('active');
+        return;
+      }
+
+      let matched = false;
+      sections.forEach(sec => {
+        const id = sec.getAttribute("id");
+        const top = sec.offsetTop;
+        const bottom = top + sec.offsetHeight;
+        if (scrollY >= top && scrollY < bottom) {
+          document.querySelectorAll('.top-nav a').forEach(l => l.classList.remove('active'));
+          const link = document.querySelector(`.top-nav a[href="#${id}"]`);
+          if (link) link.classList.add('active');
+          matched = true;
+        }
+      });
+
+      if (!matched && homeLink) homeLink.classList.remove('active');
+    }
+
+    window.addEventListener("scroll", highlightActiveLink);
+    highlightActiveLink();
+  });
+  </script>
 </body>
 </html>
-

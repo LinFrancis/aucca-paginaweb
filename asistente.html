@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Asistente AUCCA – Buscador de conocimiento</title>
+  <meta name="description" content="Asistente de AUCCA: consulta sobre AUCCA, baño seco, biofiltro, compostaje y talleres.">
+  <link rel="icon" href="images/logo_aucca.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body id="top" class="has-random-bg center-stage asistente-page">
+  <div class="bg-overlay"></div>
+
+ 
+    <!-- Header fijo, compacto y coherente -->
+  <header class="site-header compact glassy">
+    <div class="brand">
+      <a href="#top">
+        <img src="images/logo_aucca_green.png" alt="AUCCA" class="logo">
+      </a>
+      <span class="subtitle">Centro Eco-Pedagógico</span>
+    </div>
+
+    <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+
+    <nav class="top-nav hidden" id="nav-menu" aria-hidden="true">
+      <a href="index.html#top" class="btn small subtle">Inicio</a>
+      <a href="index.html#escuela-regenerativa">Escuela</a>
+      <a href="index.html#sala-talleres">Talleres</a>
+      <a href="index.html#visitas-pedagogicas">Visitas</a>
+      <a href="index.html" class="btn small">← Volver</a>
+    </nav>
+  </header>
+
+  <main class="assistant-main">
+    <section class="assistant-card glassy fade-in">
+      <!-- Tabs -->
+      <div class="tabs" id="tabs-categorias">
+        <button class="tab active" data-cat="all">Todo</button>
+        <button class="tab" data-cat="general">AUCCA y general</button>
+        <button class="tab" data-cat="bano">Baño seco</button>
+        <button class="tab" data-cat="biofiltro">Biofiltro</button>
+        <button class="tab" data-cat="compost">Compostaje</button>
+        <button class="tab" data-cat="escuela">Escuela y talleres</button>
+      </div>
+
+      <!-- Buscador -->
+      <div class="input-row">
+        <input id="aucca-input" type="text" placeholder="Ej.: ¿Qué es el biofiltro? ¿Cómo se usa el baño seco?" autocomplete="off" autofocus>
+        <button id="aucca-btn" class="btn">Buscar</button>
+        <div id="aucca-autocomplete" class="autocomplete-list hidden"></div>
+      </div>
+      <p class="hint">Consejo: entiende sinónimos (ej.: “inodoro seco” → baño seco).</p>
+
+      <!-- Sugerencias -->
+      <div class="sugerencias">
+        <p class="sugerencias-title">💡 Puedes preguntar:</p>
+        <div class="chips" id="chips-sugerencias"></div>
+      </div>
+
+      <!-- Ver temas -->
+      <div class="temas-toggle">
+        <button id="ver-temas" class="btn subtle">🌿 Ver temas disponibles</button>
+      </div>
+      <div id="lista-temas" class="temas-panel hidden"></div>
+
+      <!-- Resultado -->
+      <div id="aucca-result" class="result-area"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer glassy minimal">
+    <div class="footer-row">
+      <span>© 2025 AUCCA – Centro Eco-Pedagógico</span>
+      <a class="btn tiny" href="#top">Subir ⤴</a>
+    </div>
+  </footer>
+
+  <!-- Fondo compartido con index -->
+  <script src="js/background.js"></script>
+  <!-- Base de conocimiento + motor del asistente -->
+  <script src="data/info_data.js"></script>
+  <script src="js/chatbot.js"></script>
+
+  <!-- Menú hamburguesa: abrir/cerrar + cerrar al click -->
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const menu = document.getElementById("nav-menu");
+    const toggle = document.querySelector(".menu-toggle");
+    const links = document.querySelectorAll(".top-nav a");
+
+    // Toggle menú con ARIA
+    if (toggle) {
+      toggle.addEventListener("click", () => {
+        const willOpen = menu.classList.contains("hidden");
+        menu.classList.toggle("hidden");
+        toggle.setAttribute("aria-expanded", willOpen ? "true" : "false");
+        menu.setAttribute("aria-hidden", willOpen ? "false" : "true");
+      });
+    }
+
+    // Cerrar menú al navegar
+    links.forEach(link => {
+      link.addEventListener("click", () => {
+        menu.classList.add("hidden");
+        toggle.setAttribute("aria-expanded", "false");
+        menu.setAttribute("aria-hidden", "true");
+      });
+    });
+  });
+  </script>
+</body>
+</html>
