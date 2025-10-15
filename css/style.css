@@ -776,3 +776,38 @@ section, [id]{
     font-size: 0.95rem;
   }
 }
+
+.donaciones-contenido {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+}
+
+.donaciones-texto {
+  flex: 1 1 300px;
+}
+
+.donaciones-imagen {
+  flex: 1 1 280px;
+  text-align: center;
+}
+
+.donaciones-imagen img {
+  width: 100%;
+  max-width: 380px;
+  border-radius: 14px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.donaciones-imagen img:hover {
+  transform: scale(1.03);
+}
+
+.donaciones-imagen figcaption {
+  color: #112E4D;
+  font-size: 0.85rem;
+  margin-top: 6px;
+  opacity: 0.8;
+}
