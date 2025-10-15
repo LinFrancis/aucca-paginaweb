@@ -470,6 +470,52 @@
 
     </section>
 
+    <!-- Donaciones -->
+<section id="donaciones" class="card glassy fade-in">
+  <div class="donaciones-contenido">
+    <div class="donaciones-texto">
+      <h2>💚 Donaciones y Aportes Voluntarios</h2>
+
+      <p>
+        En Aucca<strong> todo es autogestión y trabajo voluntario </strong>. 
+        Agradecemos toda ayuda en forma de aporte económico, donaciones
+        o deseos de sumarte a futuras <strong>mingas</strong> y <strong>campañas</strong>
+      </p>
+
+      <div class="bank-info">
+        <p><strong>Banco:</strong> Banco Estado</p>
+        <p><strong>Tipo de cuenta:</strong> Chequera Electrónica</p>
+        <p><strong>N° de cuenta:</strong> 37370477257</p>
+        <p><strong>Correo electrónico:</strong> <a href="mailto:aucca.contacto@gmail.com">aucca.contacto@gmail.com</a></p>
+      </div>
+
+      <p>
+        Envía tu comprobante a nuestro correo o escríbenos por
+        <a href="https://www.instagram.com/aucca.ecopedagogico" target="_blank">Instagram</a>.
+      </p>
+
+      <button onclick="copyBankInfo()">📋 Copiar datos bancarios</button>
+    </div>
+
+    <div class="donaciones-imagen">
+      <img src="images/cultivo_verano.jpg" alt="Cosecha de verano en AUCCA" />
+      <figcaption><small>Cosecha de verano</small></figcaption>
+    </div>
+  </div>
+</section>
+
+<script>
+function copyBankInfo() {
+  const info = `Banco Estado
+Tipo de cuenta: Chequera Electrónica
+N° de cuenta: 37370477257
+Correo: aucca.contacto@gmail.com`;
+  navigator.clipboard.writeText(info);
+  alert("Datos bancarios copiados al portapapeles 🌿");
+}
+</script>
+
+
 
 
 
@@ -537,7 +583,8 @@
       <a href="https://www.youtube.com/watch?v=z5b0MhDqj_w" target="_blank">Ver video</a>
     </li>
   </ul>
-
+
+
 
   <!-- Documentos -->
   <h3>Documentos y presentaciones</h3>
@@ -663,3 +710,4 @@
   </script>
 </body>
 </html>
+
