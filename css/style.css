@@ -1,813 +1,469 @@
-/* =========================================================
-   AUCCA – Hoja de estilos principal
-   Paleta: Morado AUCCA + verdes de huerta
-   ========================================================= */
+/* ======================================================
+   🌿 AUCCA - Estilos principales
+   ====================================================== */
 
 /* ---------------------------
-   0) Variables y reset base
+   0) Variables y Reset
    --------------------------- */
-:root{
-  /* Morado AUCCA (del logo) */
-  --purple:#4f8656;
-
-  /* Verdes de huerta (complementarios / acentos) */
-  --green-1:#2E7D32;   /* botón principal / enlaces */
-  --green-2:#1B5E20;   /* texto principal */
-  --leaf:#43A047;      /* hover/realce */
-  --mint:#7ADAA5;      /* acento claro */
-  --mint-soft:#E8F5E9; /* fondo suave en captions */
-
-  /* Neutros */
-  --cream:#ffffff;
-  --glass:rgba(255,255,255,0.78);
-  --glass-weak:rgba(255,255,255,0.65);
-  --shadow:0 10px 30px rgba(0,0,0,0.18);
-  --radius:18px;
-
-  /* Altura del header fijo (para compensar scroll) */
-  --header-h-desktop: 80px;
-  --header-h-mobile: 96px;
+:root {
+  --green-1: #7ADAA5;
+  --green-2: #2f5132;
+  --mint: #b3e7d2;
+  --mint-soft: #eafaf2;
+  --cream: #ECECBB;
+  --amber: #E1AA36;
+  --teal: #239BA7;
+  --brand: var(--green-1);
+  --text: #1b2a2f;
+  --bg: #ffffff;
 }
 
-*{ box-sizing:border-box; }
-html,body{ height:100%; }
-
-body{
-  margin:0;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;
-  color:var(--green-2);
-  line-height:1.6;
-  background:#E8F5E9;
-  overflow-x:hidden;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* Suaviza el desplazamiento al navegar por #anclas */
-html { scroll-behavior: smooth; }
-
-/* Fondo aleatorio (se aplica cuando el body tiene .has-random-bg) */
-.has-random-bg{ background:#000 center/cover no-repeat fixed; }
-.bg-overlay{
-  position:fixed; inset:0;
-  background:linear-gradient(0deg, rgba(0,0,0,0.20), rgba(0,64,32,0.22));
-  pointer-events:none;
-  z-index:0;
-  opacity:1;
-}
-
-/* Contenedores translúcidos (glassmorphism) */
-.glassy{
-background:var(--glass);
-backdrop-filter: blur(6px);
-border:1px solid rgba(255,255,255,0.5);
-border-radius:var(--radius);
-box-shadow:var(--shadow);
+body {
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  color: var(--text);
+  background-color: var(--bg);
+  line-height: 1.6;
 }
 
 /* ---------------------------
-   1) Header fijo tipo webapp
+   1) Layout general
    --------------------------- */
-.site-header.compact{
-  position:fixed; top:0; left:0; width:100%; z-index:999;
-  display:flex; justify-content:space-between; align-items:center;
-  background:var(--purple);
-  color:#fff;
-  box-shadow:0 2px 6px rgba(0,0,0,0.25);
-  padding:10px 18px;
-  border-radius:0 0 16px 16px;
-}
-.site-header .brand{ display:flex; align-items:center; gap:10px; }
-.site-header .brand .logo{ height:42px; width:auto; }
-.site-header .brand .subtitle{ font-size:.95rem; font-weight:600; color:#fff; white-space:nowrap; }
-
-@media (max-width: 420px){
-  .site-header .brand .subtitle{ display:none; }
+.page-main {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
 }
 
-/* Botón hamburguesa */
-.menu-toggle{
-  background:none; border:none; font-size:1.8rem; cursor:pointer; color:#fff;
-  display:none;
-}
-
-/* Navegación principal */
-.top-nav{ display:flex; gap:1rem; align-items:center; }
-.top-nav a{
-  color:#fff; text-decoration:none; font-weight:600; font-size:.95rem;
-  transition:opacity .2s ease;
-}
-.top-nav a:hover{ opacity:.85; }
-
-/* Enlace activo según scroll */
-.top-nav a.active {
-  background: rgba(255, 255, 255, 0.25);
-  border-radius: 8px;
-  padding: 6px 10px;
-}
-
-/* Botón de acción (Asistente / Volver) */
-.top-nav .btn.small{
-  background:#fff; color:var(--purple);
-  padding:6px 12px; border-radius:8px; font-weight:700;
-  text-decoration:none; border:none; cursor:pointer;
-}
-.top-nav .btn.small:hover{ background:#E8DEF2; }
-
-/* Botón Inicio (subtle) */
-.top-nav .btn.subtle {
-  background: transparent;
-  color: #fff;
-  /* border: 1px solid rgba(255,255,255,0.7); */
-  transition: background 0.2s, color 0.2s;
-}
-.top-nav .btn.subtle:hover {
-  background: rgba(255,255,255,0.15);
-  color: #fff;
-}
-
-/* ---------------------------
-   2) Compensación de contenido
-   --------------------------- */
-main, .page-main, .assistant-main{
-  margin-top: var(--header-h-desktop);
-}
-@media (max-width: 768px){
-  main, .page-main, .assistant-main{
-    margin-top: var(--header-h-mobile);
-  }
-}
-section, [id]{
-  scroll-margin-top: calc(var(--header-h-desktop) + 12px);
-}
-@media (max-width: 768px){
-  section, [id]{
-    scroll-margin-top: calc(var(--header-h-mobile) + 12px);
-  }
-}
-
-/* ---------------------------
-   3) Botones
-   --------------------------- */
-.btn{
-  display:inline-flex; align-items:center; justify-content:center;
-  gap:.35rem; padding:.7rem 1.05rem; border-radius:999px;
-  background:var(--green-1); color:#fff; text-decoration:none; font-weight:700;
-  border:none; cursor:pointer;
-}
-.btn:hover{ filter:brightness(1.06); }
-.btn.subtle{ background:#ffffffcc; color:var(--green-1); border:1px solid #ffffff; }
-.btn.tiny{ padding:.45rem .75rem; font-size:.9rem; }
-
-/* ---------------------------
-   4) Layout y tarjetas
-   --------------------------- */
-.page-main{ position:relative; z-index:1; max-width:1100px; margin:24px auto; padding:8px; }
-.card{ margin:18px auto; padding:24px 20px; }
-.card h2 {
-  background: #E8F5E9;
+.card.glassy {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(8px);
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin: 2.5rem auto;
   color: var(--green-2);
-  padding: 0.5rem 0.9rem;
-  border-radius: 8px;
-  font-weight: 700;
-  margin: 0 0 12px;
-  text-align: center;
 }
-.card .center{ text-align:center; }
 
 /* ---------------------------
-   5) Galería con captions
+   2) Componentes generales
    --------------------------- */
+h1, h2, h3 {
+  color: var(--green-1);
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1rem;
+}
 
+p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+.btn {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--green-1), var(--mint));
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+  filter: brightness(1.08);
+  transform: scale(1.05);
+}
+
+.btn.small {
+  padding: 0.6rem 1.2rem;
+  font-size: 0.95rem;
+}
+
+/* ---------------------------
+   3) Clases compartidas
+   --------------------------- */
+.section-block {
+  margin: 3rem auto;
+  padding: 2rem;
+  max-width: 1000px;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(8px);
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  color: var(--green-2);
+  line-height: 1.65;
+}
+
+.section-block h2 {
+  text-align: center;
+  color: var(--green-1);
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+}
+
+.section-block p {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+/* ---------------------------
+   4) Galería
+   --------------------------- */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* antes era 240px */
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 16px;
   margin-top: 18px;
+  text-align: center;
 }
 
+.gallery figure {
+  margin: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gallery figure:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+}
 
 .gallery img {
-  max-width: 100%;
+  width: 100%;
   height: auto;
+  display: block;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .gallery figcaption {
-  margin-top: 0.5rem;
+  text-align: center;
   font-size: 0.9rem;
-  color: #555;
-}
-
-/* Galería pequeña (centrada y reducida) */
-.gallery.small {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 1.5rem auto;
+  padding: 0.6rem;
+  color: var(--green-2);
+  background: var(--mint-soft);
+  font-weight: 600;
 }
 
 .gallery.small figure {
-  width: 60%; /* ajusta según gusto: 40%, 50%, 60%... */
-  max-width: 400px;
+  width: 90%;
+  max-width: 520px;
+  margin: 0 auto;
 }
 
-.gallery.small img {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
+/* ---------------------------
+   5) Poema
+   --------------------------- */
+.poem {
+  text-align: center;
+  max-width: 90%;
+  margin: 0 auto;
+  font-style: italic;
+  line-height: 1.8;
+  color: var(--green-2);
+}
+
+.poem.compact {
+  font-size: 0.95rem;
+}
+
+.poem-cta {
+  text-align: center;
+  margin-top: 1rem;
 }
 
 /* ---------------------------
    6) Footer
    --------------------------- */
-.site-footer{ position:relative; z-index:1; max-width:1100px; margin:24px auto; padding:14px 16px; }
-.footer-row{ display:flex; gap:10px; align-items:center; justify-content:space-between; flex-wrap:wrap; }
-
-/* =========================================================
-   ASISTENTE AUCCA – buscador guiado
-   ========================================================= */
-.center-stage{ display:flex; flex-direction:column; min-height:100%; }
-.assistant-main{ position:relative; z-index:1; flex:1; display:grid; place-items:center; padding:16px; }
-.assistant-card{ max-width:820px; width:100%; padding:24px; }
-
-.input-row{ display:flex; gap:10px; position:relative; }
-#aucca-input{
-  flex:1; padding:14px 16px; border-radius:12px; border:1px solid #cdd7c8;
-  background:var(--glass-weak); outline:none; font-size:1rem;
+.site-footer {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(6px);
+  border-top: 2px solid var(--green-1);
+  padding: 1.5rem;
+  text-align: center;
+  color: var(--green-2);
+  margin-top: 3rem;
 }
-#aucca-input:focus{ border-color:var(--green-1); }
-.hint{ margin:.6rem 0 1rem; color:#245a2a; opacity:.9; }
 
-.result-area{ margin-top:14px; animation: fadeIn .45s ease; }
-.answer{
-  background:var(--glass); border:1px solid rgba(255,255,255,0.6); border-radius:14px;
-  padding:16px 18px; box-shadow:var(--shadow); line-height:1.65;
-}
-.answer p{ margin:.6rem 0; }
-.answer a{ color:var(--green-1); font-weight:700; }
-
-.sugerencias{ margin-top:.25rem; }
-.sugerencias-title{ margin:.25rem 0 .5rem; font-weight:700; color:#245a2a; }
-.chips{ display:flex; flex-wrap:wrap; gap:8px; }
-.chip{
-  border:none; cursor:pointer; font-weight:600;
-  padding:.45rem .75rem; border-radius:999px;
-  background:#ffffffcc; color:var(--green-2); border:1px solid #fff;
-}
-.chip:hover{ filter:brightness(1.05); }
-
-.tabs{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:12px; }
-.tab{
-  border:none; cursor:pointer; font-weight:700;
-  padding:.55rem .9rem; border-radius:999px;
-  background:#ffffffd0; color:var(--green-1); border:1px solid #fff;
-}
-.tab.active{ background:var(--green-1); color:#fff; }
-
-.temas-toggle{ margin-top:12px; }
-.temas-panel{
-  margin-top:12px; padding:14px; border-radius:12px;
-  background: rgba(255,255,255,0.88); border:1px solid #ffffff;
-}
-.temas-panel.hidden{ display:none; }
-.temas-section{ margin-bottom:14px; }
-.temas-section h4{ margin:.2rem 0 .4rem; color:var(--green-2); }
-.temas-section ul{ margin:0; padding-left:1.2rem; }
-.temas-section li{ margin:.2rem 0; }
-.temas-section a{ color:var(--green-1); text-decoration:none; font-weight:600; }
-.temas-section a:hover{ text-decoration:underline; }
-
-.autocomplete-list{
-  position:absolute; margin-top:44px;
-  background:#ffffffee; border:1px solid #fff; border-radius:12px;
-  width:min(700px, 96vw);
-  box-shadow: var(--shadow);
-  z-index:10; padding:6px; max-height:260px; overflow:auto;
-}
-.autocomplete-list.hidden{ display:none; }
-.ac-item{ padding:.5rem .6rem; border-radius:8px; cursor:pointer; }
-.ac-item:hover{ background:var(--mint-soft); }
-
-/* ---------------------------
-   7) Animaciones
-   --------------------------- */
-.fade-in{ animation: fadeIn .6s ease both; }
-@keyframes fadeIn{
-  from{ opacity:0; transform: translateY(6px); }
-  to{ opacity:1; transform: translateY(0); }
+.site-footer .btn.tiny {
+  font-size: 0.85rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
 }
 
 /* ---------------------------
-   8) Responsive general
+   7) Animaciones y utilidades
    --------------------------- */
-@media (max-width: 1024px){
-  .page-main{ padding:10px; }
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
 }
 
-@media (max-width: 768px){
-  /* Header: activar hamburguesa y menú lateral */
-  .menu-toggle{ display:block; }
-  .top-nav{
-    position:fixed; top:70px; right:0;
-    width:65%; max-width:280px;
-    background:var(--purple);
-    box-shadow:-2px 2px 8px rgba(0,0,0,0.25);
-    flex-direction:column; align-items:flex-start; gap:1rem;
-    padding:1rem; border-radius:12px 0 0 12px;
-    transition: transform .3s ease;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.center {
+  text-align: center;
+}
+
+/* ---------------------------
+   8) Responsive
+   --------------------------- */
+@media (max-width: 768px) {
+  body {
+    font-size: 0.95rem;
   }
-  .top-nav.hidden{ transform: translateX(110%); }
-  .top-nav a{ font-size:1rem; width:100%; }
-  .top-nav .btn.small{ align-self:stretch; text-align:center; }
 
-  /* Layouts */
-  .brand{ flex-direction:row; }
-  .page-main{ padding:8px; }
-  .assistant-card{ padding:20px; }
-  .input-row{ flex-direction:column; }
-  #aucca-input{ width:100%; }
+  .card.glassy,
+  .section-block {
+    padding: 1.5rem;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .poem {
+    font-size: 0.9rem;
+  }
 }
 
-/* ===============================================
-   AUCCA – Listado multimedia (versión simple)
-   =============================================== */
 
-.media-list {
-  list-style: none;
-  padding-left: 0;
+/* === SOBRE AUCCA === */
+#sobre-aucca {
+  padding: 3rem 2rem;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.about-text p {
+  margin-bottom: 1.2rem;
+  line-height: 1.7;
+}
+
+.about-text h2 {
+  font-size: 1.8rem;
+  color: var(--teal);
   margin-bottom: 1.5rem;
 }
 
-.media-list li {
-  margin: 0.4rem 0 0.8rem;
-  padding: 0.6rem 0.8rem;
-  border-left: 4px solid var(--brand);
-  background: rgba(255,255,255,0.8);
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+.about-image {
+  text-align: center;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.about-image figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Poem formatting */
+.poem {
+  margin-top: 1.5rem;
+  font-style: italic;
+  line-height: 1.7;
+}
+
+.poem p {
+  margin-bottom: 1rem;
+}
+
+.poem-cta {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.btn.listen {
+  background: var(--teal);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  text-decoration: none;
   transition: background 0.3s ease;
 }
 
-.media-list li:hover {
-  background: rgba(255,255,255,0.95);
+.btn.listen:hover {
+  background: var(--green-1);
 }
 
-.media-list strong {
-  color: var(--green-2);
+/* Responsive */
+@media (max-width: 850px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .about-text {
+    order: 2;
+  }
+
+  .about-image {
+    order: 1;
+  }
+
+  .about-image img {
+    max-width: 100%;
+  }
 }
 
-.media-list a {
-  color: var(--brand);
-  font-weight: 600;
-  text-decoration: none;
-}
 
-.media-list a:hover {
-  text-decoration: underline;
-  color: #7da67b;
-}
+/* ===============================
+   AUCCA – Recursos de Talleres
+   =============================== */
 
-#videos h3 {
-  margin-top: 1.5rem;
-  color: var(--green-2);
-  border-bottom: 2px solid rgba(94,126,91,0.2);
-  padding-bottom: 0.2rem;
-}
-
-
-/* Instagram embed */
-.insta-embed {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 1.5rem 0;
-}
-
-.instagram-media {
-  border-radius: 12px !important;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-}
-
-#escuela-regenerativa {
-  padding: 2rem;
-  line-height: 1.6;
-}
-
-#escuela-regenerativa h2 {
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-#escuela-regenerativa h3 {
-  margin-top: 2rem;
-  color: var(--teal);
-}
-
-.workshop-list {
-  list-style-type: none;
+.workshops {
+  counter-reset: w;
+  list-style: none;
+  margin: 1.2rem 0 0;
   padding: 0;
+  display: grid;
+  gap: 1.4rem;
 }
 
-.workshop-list li {
-  background: rgba(255,255,255,0.6);
-  margin: 0.8rem 0;
-  padding: 1rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+.workshop {
+  background: rgba(255,255,255,.72);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(122,218,165,.25);
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  padding: 1.2rem 1.2rem .8rem;
 }
 
-.cta {
-  text-align: center;
-  margin-top: 1.5rem;
+.workshop-head {
+  display: grid;
+  gap: .35rem;
+  margin-bottom: .6rem;
 }
 
+.workshop-head > strong {
+  font-size: 1.1rem;
+  color: var(--green-2);
+}
 
-/* Footer AUCCA */
-.site-footer {
-  margin-top: 3rem;
-  padding: 1.2rem 1.5rem;
-  text-align: center;
-  font-size: 0.95rem;
+.w-date {
+  font-size: .95rem;
+  color: #4b6b4f;
+}
+
+.w-desc {
+  margin: .2rem 0 0;
   color: var(--text);
-  background: rgba(255, 255, 255, 0.65);
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(6px);
-  border-radius: 12px 12px 0 0;
 }
 
-.footer-row {
-  display: flex;
+/* Lista de recursos (cada taller) */
+.resource-list {
+  list-style: none;
+  margin: .6rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: .6rem;
+}
+
+.resource-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: .8rem;
+  background: var(--mint-soft);
+  border: 1px solid rgba(35,155,167,.15);
+  border-radius: 12px;
+  padding: .8rem .9rem;
+}
+
+.resource-item.pending {
+  opacity: .65;
+}
+
+.resource-chip {
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-}
-
-.site-footer a {
-  color: var(--teal);
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.site-footer a:hover {
-  text-decoration: underline;
-}
-
-
-/* =========================================================
-   Sección: Historia, Filosofía y Poema AUCCA (versión luminosa)
-   ========================================================= */
-#historia-filosofia {
-  margin: 3rem auto;
-  padding: 2.5rem 2rem;
-  max-width: 1000px;
-  width: 100%;
-
-  /* Fondo translúcido con resplandor */
-  background: radial-gradient(
-      circle at center,
-      rgba(255, 255, 255, 0.85) 0%,
-      rgba(255, 255, 255, 0.65) 60%,
-      rgba(255, 255, 255, 0.5) 100%
-  );
-  backdrop-filter: blur(10px);
-
-  border: 1px solid rgba(122, 218, 165, 0.35);
-  border-radius: 18px;
-  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.12);
-
-  text-align: center;
-  color: var(--green-2);
-  line-height: 1.65;
-  font-weight: 400;
-}
-
-/* Titulares */
-#historia-filosofia h2 {
-  color: var(--green-1);
-  margin-bottom: 1rem;
-  font-size: 1.6rem;
+  min-width: 48px;
+  height: 28px;
+  padding: 0 .6rem;
+  border-radius: 999px;
+  font-size: .8rem;
   font-weight: 700;
-}
-
-#historia-filosofia h3 {
-  color: var(--green-1);
-  margin-top: 2.2rem;
-  margin-bottom: 1rem;
-  font-weight: 600;
-  font-size: 1.2rem;
-  letter-spacing: 0.4px;
-}
-
-/* Párrafos */
-#historia-filosofia p {
-  margin-bottom: 1.1rem;
-  font-size: 1rem;
-  text-align: center;
-}
-
-/* Línea divisoria */
-#historia-filosofia .divider {
-  border: 0;
-  height: 1px;
-  background: linear-gradient(to right, transparent, var(--mint), transparent);
-  margin: 2rem auto;
-  width: 60%;
-  opacity: 0.6;
-}
-
-/* Poema */
-#historia-filosofia .poem {
-  display: inline-block;
-  text-align: center;
-  margin: 1rem auto 0;
-  padding: 1.5rem 1.2rem;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.45);
-  box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.08);
-  font-size: 0.97rem;
-  line-height: 1.65;
-  font-style: italic;
-  color: #2e3b2f;
-  max-width: 700px;
-}
-
-#historia-filosofia .poem p {
-  margin-bottom: 0.8rem;
-}
-
-/* Botón escuchar */
-#historia-filosofia .poem-cta {
-  text-align: center;
-  margin-top: 1.3rem;
-}
-
-#historia-filosofia .btn.listen {
-  display: inline-block;
-  background: linear-gradient(90deg, var(--green-1), var(--mint));
   color: #fff;
-  font-size: 0.9rem;
-  padding: 0.6rem 1.3rem;
-  border-radius: 999px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  font-weight: 600;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  user-select: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,.12);
 }
 
-#historia-filosofia .btn.listen:hover {
-  filter: brightness(1.08);
-  transform: scale(1.05);
-}
+.resource-chip.pdf  { background: #E74C3C; }   /* rojo suave */
+.resource-chip.pptx { background: #2E86C1; }   /* azul suave */
+.resource-chip.doc  { background: #5E60CE; }
+.resource-chip.xls  { background: #1B9C85; }
 
-/* Responsivo */
-@media (max-width: 768px) {
-  #historia-filosofia {
-    padding: 1.5rem;
-    font-size: 0.93rem;
-    background: radial-gradient(
-      circle at center,
-      rgba(255, 255, 255, 0.9) 0%,
-      rgba(255, 255, 255, 0.6) 100%
-    );
-  }
-  #historia-filosofia .poem {
-    font-size: 0.9rem;
-    padding: 1rem;
-  }
-}
-
-
-/* ======================================================
-   Sección: Sala de Talleres AUCCA
-   ====================================================== */
-#sala-talleres {
-  margin: 3rem auto;
-  padding: 2rem 2rem 2.5rem;
-  max-width: 1000px;
-  text-align: left;
-  line-height: 1.65;
+/* Título del recurso */
+.resource-title {
   color: var(--green-2);
-  background: rgba(255, 255, 255, 0.65);
-  backdrop-filter: blur(8px);
-  border-radius: 18px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-}
-
-#sala-talleres h2 {
-  text-align: center;
-  color: var(--green-1);
-  margin-bottom: 1.2rem;
-  font-size: 1.6rem;
-}
-
-#sala-talleres p {
-  margin-bottom: 1rem;
-  font-size: 1rem;
-}
-
-#sala-talleres ul.sala-condiciones {
-  margin: 1.5rem auto;
-  padding-left: 1.2rem;
-  list-style-type: "🌿 ";
-  font-size: 0.98rem;
-}
-
-#sala-talleres ul.sala-condiciones li {
-  margin-bottom: 0.4rem;
-  line-height: 1.5;
-}
-
-#sala-talleres .btn {
-  display: inline-block;
-  background: linear-gradient(90deg, var(--green-1), var(--mint));
-  color: white;
-  text-decoration: none;
   font-weight: 600;
-  padding: 0.7rem 1.4rem;
-  border-radius: 999px;
-  transition: all 0.3s ease;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  line-height: 1.35;
 }
 
-#sala-talleres .btn:hover {
-  filter: brightness(1.08);
-  transform: scale(1.05);
-}
-
-#sala-talleres .center {
-  text-align: center;
-}
-
-@media (max-width: 768px) {
-  #sala-talleres {
-    padding: 1.5rem;
-    font-size: 0.95rem;
-  }
-}
-
-
-/* ======================================================
-   Sección: Visitas Pedagógicas AUCCA
-   ====================================================== */
-#visitas-pedagogicas {
-  margin: 3rem auto;
-  padding: 2rem;
-  max-width: 1000px;
-  background: rgba(255, 255, 255, 0.65);
-  backdrop-filter: blur(8px);
-  border-radius: 18px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-  color: var(--green-2);
-  line-height: 1.65;
-}
-
-#visitas-pedagogicas h2 {
-  text-align: center;
-  color: var(--green-1);
-  margin-bottom: 1rem;
-  font-size: 1.6rem;
-}
-
-#visitas-pedagogicas p {
-  margin-bottom: 1rem;
-  text-align: left;
-  font-size: 1rem;
-}
-
-#visitas-pedagogicas ul.visitas-detalle {
-  margin: 1.5rem auto;
-  padding-left: 1.2rem;
-  list-style-type: "🍃 ";
-  font-size: 0.98rem;
-}
-
-#visitas-pedagogicas ul.visitas-detalle li {
-  margin-bottom: 0.5rem;
-  line-height: 1.5;
-}
-
-#visitas-pedagogicas small {
-  color: #5a7a6a;
-  font-style: italic;
-}
-
-#visitas-pedagogicas .btn {
-  display: inline-block;
-  background: linear-gradient(90deg, var(--green-1), var(--mint));
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  padding: 0.7rem 1.4rem;
-  border-radius: 999px;
-  transition: all 0.3s ease;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-}
-
-#visitas-pedagogicas .btn:hover {
-  filter: brightness(1.08);
-  transform: scale(1.05);
-}
-
-#visitas-pedagogicas .center {
-  text-align: center;
-}
-
-@media (max-width: 768px) {
-  #visitas-pedagogicas {
-    padding: 1.5rem;
-    font-size: 0.95rem;
-  }
-}
-
-
-/* ======================================================
-   Sección: Voluntariado AUCCA
-   ====================================================== */
-#voluntariado {
-  margin: 3rem auto;
-  padding: 2rem 2rem 2.5rem;
-  max-width: 1000px;
-  background: rgba(255, 255, 255, 0.65);
-  backdrop-filter: blur(8px);
-  border-radius: 18px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-  color: var(--green-2);
-  line-height: 1.65;
-}
-
-#voluntariado h2 {
-  text-align: center;
-  color: var(--green-1);
-  margin-bottom: 1rem;
-  font-size: 1.6rem;
-}
-
-#voluntariado p {
-  margin-bottom: 1rem;
-  text-align: left;
-  font-size: 1rem;
-}
-
-#voluntariado .btn {
-  display: inline-block;
-  background: linear-gradient(90deg, var(--green-1), var(--mint));
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  padding: 0.7rem 1.4rem;
-  border-radius: 999px;
-  transition: all 0.3s ease;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-}
-
-#voluntariado .btn:hover {
-  filter: brightness(1.08);
-  transform: scale(1.05);
-}
-
-#voluntariado .center {
-  text-align: center;
-}
-
-@media (max-width: 768px) {
-  #voluntariado {
-    padding: 1.5rem;
-    font-size: 0.95rem;
-  }
-}
-
-.donaciones-contenido {
-  display: flex;
-  flex-wrap: wrap;
+/* Acciones (botones) */
+.resource-actions {
+  display: inline-flex;
+  gap: .4rem;
   align-items: center;
-  gap: 20px;
 }
 
-.donaciones-texto {
-  flex: 1 1 300px;
+.btn.ghost {
+  background: transparent;
+  color: var(--green-2);
+  border: 2px solid var(--green-1);
+  box-shadow: none;
 }
 
-.donaciones-imagen {
-  flex: 1 1 280px;
-  text-align: center;
+.btn.small.disabled,
+.btn.small[aria-disabled="true"] {
+  opacity: .7;
+  cursor: not-allowed;
+  filter: grayscale(20%);
 }
 
-.donaciones-imagen img {
-  width: 100%;
-  max-width: 380px;
-  border-radius: 14px;
-  box-shadow: 0 0 12px rgba(0,0,0,0.2);
-  transition: transform 0.3s ease-in-out;
-}
-
-.donaciones-imagen img:hover {
-  transform: scale(1.03);
-}
-
-.donaciones-imagen figcaption {
-  color: #112E4D;
-  font-size: 0.85rem;
-  margin-top: 6px;
-  opacity: 0.8;
+/* Responsive */
+@media (max-width: 720px) {
+  .resource-item {
+    grid-template-columns: 1fr;
+    gap: .5rem;
+  }
+  .resource-actions {
+    justify-content: flex-start;
+  }
 }
