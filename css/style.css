@@ -1,6 +1,7 @@
 /* ===== AUCCA — estilo moderno minimalista ===== */
 
 :root {
+  color-scheme: light;
   --bg: #faf7f1;
   --bg-alt: #f1ebdf;
   --ink: #2b2822;
@@ -81,7 +82,7 @@ img { max-width: 100%; display: block; }
 .header-inner {
   max-width: var(--max);
   margin: 0 auto;
-  padding: 0.7rem 1.2rem;
+  padding: 0.5rem 1.2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -91,7 +92,7 @@ img { max-width: 100%; display: block; }
   align-items: center;
   gap: 0.6rem;
 }
-.brand .logo { height: 40px; width: 40px; object-fit: contain; border-radius: 50%; }
+.brand .logo { height: 64px; width: 64px; object-fit: contain; border-radius: 50%; }
 .brand-name {
   font-family: var(--font-head);
   font-weight: 600;
@@ -417,21 +418,22 @@ body.no-scroll { overflow: hidden; }
   }
   .top-nav a { width: 100%; padding: 0.8rem 0; border-bottom: 1px solid var(--line); }
 
-  .hero { min-height: 90vh; }
+  .hero {
+    display: block;
+    min-height: 0;
+    overflow: visible;
+  }
+  .hero-bg {
+    position: static;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+  .hero-inner {
+    background: var(--green-dark);
+    padding: 1.8rem 1.2rem 2.2rem;
+  }
   .section { padding: 2.8rem 0; }
   .carousel-btn { display: none; }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #1b1a16;
-    --bg-alt: #24231d;
-    --ink: #f1ede2;
-    --ink-soft: #c7c1b2;
-    --line: #38362c;
-  }
-  .site-header { background: rgba(27, 26, 22, 0.92); }
-  .btn.ghost { color: #f1ede2; border-color: #f1ede2; }
-  .btn.ghost:hover { background: #f1ede2; color: var(--green-dark); }
-  .carousel-btn { background: #24231d; }
 }
