@@ -44,6 +44,7 @@
 
       <nav class="top-nav" id="nav-menu">
         <a href="#top">Inicio</a>
+        <a href="#proxima-actividad">Actividades</a>
         <a href="#quienes-somos">Quiénes somos</a>
         <a href="#lo-que-hacemos">Qué hacemos</a>
         <a href="#comunidad">Comunidad</a>
@@ -69,6 +70,43 @@
   </section>
 
   <main class="page-main">
+
+    <!-- Próxima actividad -->
+    <section id="proxima-actividad" class="section" hidden>
+      <h2 id="actividad-eyebrow">Próxima actividad</h2>
+      <div class="activity-layout">
+        <img class="activity-poster zoomable" id="actividad-imagen" src="" alt="" loading="lazy">
+        <div class="activity-info">
+          <h3 id="actividad-titulo"></h3>
+          <p class="activity-subtitle" id="actividad-subtitulo"></p>
+          <p class="activity-date" id="actividad-fecha"></p>
+          <ul class="media-list" id="actividad-resumen"></ul>
+          <p id="actividad-valores"></p>
+          <div class="activity-ctas">
+            <a class="btn" id="actividad-pdf" href="" target="_blank" rel="noopener">Ver programa (PDF)</a>
+            <a class="btn ghost" id="actividad-compartir" href="">Compartir esta actividad</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="insta-embed" aria-label="Video de Instagram de la próxima actividad">
+        <blockquote
+          id="actividad-instagram"
+          class="instagram-media"
+          data-instgrm-permalink=""
+          data-instgrm-version="14">
+        </blockquote>
+      </div>
+
+      <div class="activity-inscripcion">
+        <img class="activity-form-header zoomable" id="actividad-header-form" src="" alt="Inscripción" loading="lazy">
+        <p class="center">
+          <a class="btn" id="actividad-inscripcion" href="" target="_blank" rel="noopener">Inscribirme</a>
+        </p>
+      </div>
+
+      <p class="center"><a href="actividades.html">Ver actividades anteriores</a></p>
+    </section>
 
     <!-- Quiénes somos -->
     <section id="quienes-somos" class="section">
@@ -455,9 +493,43 @@
   </footer>
 
   <!-- Scripts -->
+  <script src="data/actividades.js"></script>
   <script>
   document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Próxima actividad (destacada)
+    if (typeof ACTIVIDADES !== "undefined" && ACTIVIDADES.length) {
+      const hoy = new Date().toISOString().slice(0, 10);
+      const futuras = ACTIVIDADES.filter(a => a.fecha >= hoy).sort((a, b) => a.fecha.localeCompare(b.fecha));
+      const pasadas = ACTIVIDADES.filter(a => a.fecha < hoy).sort((a, b) => b.fecha.localeCompare(a.fecha));
+      const act = futuras[0] || pasadas[0];
+
+      if (act) {
+        const section = document.getElementById("proxima-actividad");
+        document.getElementById("actividad-eyebrow").textContent = futuras[0] ? "Próxima actividad" : "Última actividad";
+        document.getElementById("actividad-imagen").src = act.imagen;
+        document.getElementById("actividad-imagen").alt = "Afiche " + act.titulo;
+        document.getElementById("actividad-titulo").textContent = act.titulo;
+        document.getElementById("actividad-subtitulo").textContent = act.subtitulo;
+        document.getElementById("actividad-fecha").textContent = act.fechaTexto;
+        document.getElementById("actividad-valores").innerHTML = "<strong>Valores:</strong> " + act.valores;
+        document.getElementById("actividad-pdf").href = act.programaPdf;
+        document.getElementById("actividad-compartir").href = act.carpeta;
+        document.getElementById("actividad-header-form").src = act.headerFormulario;
+        document.getElementById("actividad-inscripcion").href = act.inscripcion;
+        document.getElementById("actividad-instagram").setAttribute("data-instgrm-permalink", act.instagramPermalink);
+
+        const resumenList = document.getElementById("actividad-resumen");
+        act.resumen.forEach(item => {
+          const li = document.createElement("li");
+          li.textContent = item;
+          resumenList.appendChild(li);
+        });
+
+        section.hidden = false;
+      }
+    }
 
     // Mobile menu
     const menu = document.getElementById("nav-menu");
@@ -548,7 +620,7 @@
       lightboxImg.src = "";
     }
 
-    document.querySelectorAll(".carousel-slide img, .two-col-img, .quad-photo, .visitanos-img, .map-photo img, .poem-img").forEach(img => {
+    document.querySelectorAll(".carousel-slide img, .two-col-img, .quad-photo, .visitanos-img, .map-photo img, .poem-img, .activity-poster, .activity-form-header").forEach(img => {
       img.classList.add("zoomable");
       img.addEventListener("click", () => openLightbox(img));
     });

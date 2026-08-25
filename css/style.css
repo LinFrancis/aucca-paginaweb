@@ -69,6 +69,7 @@ img { max-width: 100%; display: block; }
 }
 .btn.ghost:hover { background: var(--green-dark); color: #fff; }
 .btn.tiny { padding: 0.4em 1em; font-size: 0.85rem; }
+.btn.small { padding: 0.5em 1.1em; font-size: 0.9rem; }
 
 /* ---------- Header ---------- */
 .site-header {
@@ -437,3 +438,74 @@ body.no-scroll { overflow: hidden; }
   .section { padding: 2.8rem 0; }
   .carousel-btn { display: none; }
 }
+
+/* ---------- Actividades ---------- */
+.activity-layout {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 2.5rem;
+  align-items: start;
+  margin-bottom: 2rem;
+}
+.activity-poster {
+  width: 100%;
+  border-radius: var(--radius);
+  box-shadow: 0 10px 30px rgba(43,40,34,0.15);
+}
+.activity-subtitle { font-style: italic; color: var(--ink-soft); }
+.activity-date { color: var(--terracotta); font-weight: 600; }
+.activity-ctas { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 1.2rem; }
+
+.activity-inscripcion { margin-top: 2rem; text-align: center; }
+.activity-form-header {
+  width: 100%;
+  max-width: 640px;
+  border-radius: var(--radius);
+  margin: 0 auto 1.2rem;
+  cursor: zoom-in;
+}
+
+@media (max-width: 860px) {
+  .activity-layout { grid-template-columns: 1fr; }
+  .activity-poster { max-width: 320px; margin: 0 auto; }
+}
+
+/* Página individual de actividad */
+.activity-page .activity-date { margin-bottom: 1.5rem; }
+
+/* Archivo de actividades */
+.activities-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.8rem;
+  margin-top: 2rem;
+}
+.activity-card {
+  background: var(--bg-alt);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.activity-card-img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  object-position: top;
+}
+.activity-card-body { padding: 1.2rem 1.4rem 1.5rem; display: flex; flex-direction: column; gap: 0.4rem; }
+.activity-card-body h3 { margin-bottom: 0; }
+.activity-card-body .activity-date { font-size: 0.88rem; }
+.activity-card-body .btn { align-self: flex-start; margin-top: 0.6rem; }
+.activity-badge {
+  align-self: flex-start;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25em 0.7em;
+  border-radius: 999px;
+  color: #fff;
+  background: var(--ink-soft);
+}
+.activity-badge.upcoming { background: var(--green); }

@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Actividades — Aucca</title>
+  <meta name="description" content="Actividades de autogestión de Aucca: talleres y jornadas mensuales en Talagante, pasadas y próximas.">
+  <link rel="canonical" href="https://www.aucca.cl/actividades.html">
+  <link rel="icon" href="images/logos/Logo_biocasa_aucca.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.aucca.cl/actividades.html">
+  <meta property="og:site_name" content="Aucca – Bio-Casa Comunitaria">
+  <meta property="og:locale" content="es_CL">
+  <meta property="og:title" content="Actividades — Aucca">
+  <meta property="og:description" content="Actividades de autogestión de Aucca: talleres y jornadas mensuales en Talagante, pasadas y próximas.">
+  <meta property="og:image" content="https://www.aucca.cl/images/grupo_humano/Foto_Grupal_03.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body id="top">
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html#top">
+        <img src="images/logos/Logo_biocasa_aucca.png" alt="AUCCA" class="logo">
+      </a>
+
+      <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+
+      <nav class="top-nav" id="nav-menu">
+        <a href="index.html#top">Inicio</a>
+        <a href="index.html#proxima-actividad">Actividades</a>
+        <a href="index.html#quienes-somos">Quiénes somos</a>
+        <a href="index.html#lo-que-hacemos">Qué hacemos</a>
+        <a href="index.html#comunidad">Comunidad</a>
+        <a href="index.html#galeria">Galería</a>
+        <a href="index.html#visitanos">Visítanos</a>
+        <a href="index.html#contacto">Contacto</a>
+        <a href="index.html#recursos">Recursos</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <section class="section">
+      <h1>Actividades</h1>
+      <p class="center">Talleres y jornadas de autogestión que hacemos mensualmente en Aucca — registro de las próximas y las que ya vivimos.</p>
+
+      <div class="activities-list" id="activities-list"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-row">
+      <span>© <span id="year"></span> AUCCA – Bio-Casa Comunitaria</span>
+      <span>Diseñado y desarrollado por <a href="https://livlin.cl" target="_blank" rel="noopener">LivLin.cl</a></span>
+      <a class="btn tiny" href="#top">Subir ⤴</a>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" aria-label="Cerrar">✕</button>
+    <img id="lightbox-img" src="" alt="">
+  </div>
+
+  <script src="data/actividades.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const menu = document.getElementById("nav-menu");
+    const toggle = document.querySelector(".menu-toggle");
+    if (toggle) {
+      toggle.addEventListener("click", () => {
+        const willOpen = !menu.classList.contains("open");
+        menu.classList.toggle("open");
+        toggle.setAttribute("aria-expanded", willOpen);
+        toggle.textContent = willOpen ? '✕' : '☰';
+      });
+      menu.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+          menu.classList.remove("open");
+          toggle.setAttribute("aria-expanded", "false");
+          toggle.textContent = '☰';
+        });
+      });
+    }
+
+    const hoy = new Date().toISOString().slice(0, 10);
+    const ordenadas = [...ACTIVIDADES].sort((a, b) => b.fecha.localeCompare(a.fecha));
+    const list = document.getElementById("activities-list");
+
+    ordenadas.forEach(act => {
+      const esFutura = act.fecha >= hoy;
+      const card = document.createElement("article");
+      card.className = "activity-card";
+      card.innerHTML = `
+        <img class="activity-card-img zoomable" src="${act.imagen}" alt="Afiche ${act.titulo}" loading="lazy">
+        <div class="activity-card-body">
+          <span class="activity-badge ${esFutura ? "upcoming" : "past"}">${esFutura ? "Próxima" : "Actividad realizada"}</span>
+          <h3>${act.titulo}</h3>
+          <p class="activity-date">${act.fechaTexto}</p>
+          <p>${act.subtitulo}</p>
+          <a class="btn small" href="${act.carpeta}">Ver actividad</a>
+        </div>
+      `;
+      list.appendChild(card);
+    });
+
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    function openLightbox(img) {
+      lightboxImg.src = img.currentSrc || img.src;
+      lightboxImg.alt = img.alt || "";
+      lightbox.classList.add("open");
+      document.body.classList.add("no-scroll");
+    }
+    function closeLightbox() {
+      lightbox.classList.remove("open");
+      document.body.classList.remove("no-scroll");
+      lightboxImg.src = "";
+    }
+    document.querySelectorAll(".zoomable").forEach(img => {
+      img.addEventListener("click", () => openLightbox(img));
+    });
+    document.querySelector(".lightbox-close").addEventListener("click", closeLightbox);
+    lightbox.addEventListener("click", (e) => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeLightbox(); });
+  });
+  </script>
+</body>
+</html>
