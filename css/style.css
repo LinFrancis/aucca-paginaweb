@@ -324,6 +324,39 @@ img { max-width: 100%; display: block; }
 
 .pending { color: var(--ink-soft); font-style: italic; }
 
+/* ---------- Cómo llegar ---------- */
+.how-to-arrive {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  margin-top: 1.5rem;
+}
+.arrive-block h4 {
+  font-family: var(--font-head);
+  font-weight: 600;
+  color: var(--green-dark);
+  font-size: 1.05rem;
+  margin: 0 0 0.8em;
+}
+.steps {
+  margin: 0;
+  padding-left: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+.steps li { padding-left: 0.3rem; }
+.note {
+  margin-top: 1.5rem;
+  padding: 1rem 1.2rem;
+  background: var(--bg-alt);
+  border-left: 3px solid var(--terracotta);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+@media (max-width: 860px) {
+  .how-to-arrive { grid-template-columns: 1fr; gap: 1.8rem; }
+}
+
 /* ---------- Recursos: subtemas destacados ---------- */
 #recursos h3 {
   color: var(--terracotta);
