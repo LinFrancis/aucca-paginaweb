@@ -549,20 +549,26 @@
         const pdfLink = document.getElementById("actividad-pdf");
         if (act.programaPdf) {
           pdfLink.href = act.programaPdf;
-          pdfLink.hidden = false;
+          pdfLink.style.display = "";
         } else {
-          pdfLink.hidden = true;
+          pdfLink.style.display = "none";
         }
         document.getElementById("actividad-compartir").href = act.carpeta;
         const headerForm = document.getElementById("actividad-header-form");
         if (act.headerFormulario) {
           headerForm.src = act.headerFormulario;
-          headerForm.hidden = false;
+          headerForm.style.display = "";
         } else {
-          headerForm.hidden = true;
+          headerForm.style.display = "none";
         }
         document.getElementById("actividad-inscripcion").href = act.inscripcion;
-        document.getElementById("actividad-instagram").setAttribute("data-instgrm-permalink", act.instagramPermalink);
+        const instaEmbed = document.getElementById("actividad-instagram");
+        if (act.instagramPermalink) {
+          instaEmbed.closest(".insta-embed").style.display = "";
+          instaEmbed.setAttribute("data-instgrm-permalink", act.instagramPermalink);
+        } else {
+          instaEmbed.closest(".insta-embed").style.display = "none";
+        }
 
         const resumenList = document.getElementById("actividad-resumen");
         act.resumen.forEach(item => {
