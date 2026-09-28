@@ -546,9 +546,21 @@
         document.getElementById("actividad-subtitulo").textContent = act.subtitulo;
         document.getElementById("actividad-fecha").textContent = act.fechaTexto;
         document.getElementById("actividad-valores").innerHTML = "<strong>Valores:</strong> " + act.valores;
-        document.getElementById("actividad-pdf").href = act.programaPdf;
+        const pdfLink = document.getElementById("actividad-pdf");
+        if (act.programaPdf) {
+          pdfLink.href = act.programaPdf;
+          pdfLink.hidden = false;
+        } else {
+          pdfLink.hidden = true;
+        }
         document.getElementById("actividad-compartir").href = act.carpeta;
-        document.getElementById("actividad-header-form").src = act.headerFormulario;
+        const headerForm = document.getElementById("actividad-header-form");
+        if (act.headerFormulario) {
+          headerForm.src = act.headerFormulario;
+          headerForm.hidden = false;
+        } else {
+          headerForm.hidden = true;
+        }
         document.getElementById("actividad-inscripcion").href = act.inscripcion;
         document.getElementById("actividad-instagram").setAttribute("data-instgrm-permalink", act.instagramPermalink);
 

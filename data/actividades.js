@@ -23,6 +23,26 @@ const ACTIVIDADES = [
     programaPdf: "actividades/2026-09-cultiva-tu-alimento/programa.pdf",
     instagramPermalink: "https://www.instagram.com/reel/Dccmd_0RM_3/",
     inscripcion: "https://forms.gle/efVDFuQeasnA3sNa7"
+  },
+  {
+    id: "2026-10-talleres-en-familia",
+    titulo: "Talleres en Familia",
+    subtitulo: "Método Biointensivo para adultos + Alfarería y Hotel de Insectos para niños y niñas",
+    fecha: "2026-10-04",
+    fechaTexto: "Domingo 4 de octubre · 10:00 a 14:00 hrs",
+    resumen: [
+      "Adultos: taller de método biointensivo y diseño de huerta de primavera-verano",
+      "Niños y niñas: alfarería precolombina y construcción de hoteles de insectos",
+      "Kit de huerta para participantes del taller de adultos",
+      "Cierre compartiendo empanadas vegetales y jugo"
+    ],
+    valores: "Adultos $13.000 · Niños/as $10.000",
+    carpeta: "actividades/2026-10-talleres-en-familia/",
+    imagen: "actividades/2026-10-talleres-en-familia/afiche.jpg",
+    imagenAncho: 361,
+    imagenAlto: 640,
+    instagramPermalink: "https://www.instagram.com/p/DdrRkTlRVPS/",
+    inscripcion: "https://forms.gle/jZAjbD31pRyGDdyL7"
   }
   // próxima actividad del mes: agregar un nuevo objeto acá
 ];
