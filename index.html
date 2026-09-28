@@ -85,18 +85,9 @@
           <p id="actividad-valores"></p>
           <div class="activity-ctas">
             <a class="btn" id="actividad-pdf" href="" target="_blank" rel="noopener">Ver programa (PDF)</a>
-            <a class="btn ghost" id="actividad-compartir" href="">Compartir esta actividad</a>
+            <a class="btn ghost" id="actividad-compartir" href="">Ver actividad completa</a>
           </div>
         </div>
-      </div>
-
-      <div class="insta-embed" aria-label="Video de Instagram de la próxima actividad">
-        <blockquote
-          id="actividad-instagram"
-          class="instagram-media"
-          data-instgrm-permalink=""
-          data-instgrm-version="14">
-        </blockquote>
       </div>
 
       <div class="activity-inscripcion">
@@ -562,13 +553,6 @@
           headerForm.style.display = "none";
         }
         document.getElementById("actividad-inscripcion").href = act.inscripcion;
-        const instaEmbed = document.getElementById("actividad-instagram");
-        if (act.instagramPermalink) {
-          instaEmbed.closest(".insta-embed").style.display = "";
-          instaEmbed.setAttribute("data-instgrm-permalink", act.instagramPermalink);
-        } else {
-          instaEmbed.closest(".insta-embed").style.display = "none";
-        }
 
         const resumenList = document.getElementById("actividad-resumen");
         act.resumen.forEach(item => {

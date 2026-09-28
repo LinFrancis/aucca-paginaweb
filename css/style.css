@@ -480,6 +480,7 @@ body.no-scroll { overflow: hidden; }
   align-items: start;
   margin-bottom: 2rem;
 }
+.activity-layout-full { grid-template-columns: 1fr; }
 .activity-poster {
   width: 100%;
   border-radius: var(--radius);

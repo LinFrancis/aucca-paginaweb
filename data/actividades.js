@@ -39,8 +39,8 @@ const ACTIVIDADES = [
     valores: "Adultos $13.000 · Niños/as $10.000",
     carpeta: "actividades/2026-10-talleres-en-familia/",
     imagen: "actividades/2026-10-talleres-en-familia/afiche.jpg",
-    imagenAncho: 361,
-    imagenAlto: 640,
+    imagenAncho: 1200,
+    imagenAlto: 630,
     instagramPermalink: "https://www.instagram.com/p/DdrRkTlRVPS/",
     inscripcion: "https://forms.gle/jZAjbD31pRyGDdyL7"
   }
